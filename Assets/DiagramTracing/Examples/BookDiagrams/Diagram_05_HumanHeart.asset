@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42f09b25e622514e90147264cdd5bbc, type: 3}
   m_Name: Diagram_05_HumanHeart
   m_EditorClassIdentifier: 
-  diagramTitle: Human Heart Anatomy
-  diagramSummary: Trace the cardiac ventricles, atria chambers, and ascending aorta
+  _diagramTitle: Human Heart Anatomy
+  _diagramSummary: Trace the cardiac ventricles, atria chambers, and ascending aorta
     arch.
-  outlineTexture: {fileID: 2800000, guid: cba4a83e8cd4b2046a2b26d8b85d8964, type: 3}
-  fullColoredTexture: {fileID: 2800000, guid: eeafe143060dd6f428d703fcbc847d22, type: 3}
-  structurePrefab: {fileID: 0}
-  pathSegments:
-  - segmentName: Outline 1
-    points:
+  _outlineTexture: {fileID: 2800000, guid: cba4a83e8cd4b2046a2b26d8b85d8964, type: 3}
+  _fullColoredTexture: {fileID: 2800000, guid: eeafe143060dd6f428d703fcbc847d22, type: 3}
+  _structurePrefab: {fileID: 0}
+  _pathSegments:
+  - _segmentName: Outline 1
+    _points:
     - {x: 0.50097656, y: 0.22167969}
     - {x: 0.50097656, y: 0.22363281}
     - {x: 0.50097656, y: 0.22558594}
@@ -219,9 +219,9 @@ MonoBehaviour:
     - {x: 0.50097656, y: 0.60253906}
     - {x: 0.50097656, y: 0.6044922}
     - {x: 0.50097656, y: 0.6064453}
-    strokeWidth: 5
-  - segmentName: Outline 2
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 2
+    _points:
     - {x: 0.39941406, y: 0.69433594}
     - {x: 0.40005493, y: 0.69628906}
     - {x: 0.4006958, y: 0.6982422}
@@ -259,9 +259,9 @@ MonoBehaviour:
     - {x: 0.42999268, y: 0.7340698}
     - {x: 0.43045044, y: 0.7355652}
     - {x: 0.43066406, y: 0.7373047}
-    strokeWidth: 5
-  - segmentName: Outline 3
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 3
+    _points:
     - {x: 0.39941406, y: 0.69433594}
     - {x: 0.4013672, y: 0.6932678}
     - {x: 0.4033203, y: 0.69259644}
@@ -393,9 +393,9 @@ MonoBehaviour:
     - {x: 0.5986328, y: 0.69262695}
     - {x: 0.60058594, y: 0.6932678}
     - {x: 0.60253906, y: 0.69433594}
-    strokeWidth: 5
-  - segmentName: Outline 4
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 4
+    _points:
     - {x: 0.39941406, y: 0.69433594}
     - {x: 0.39746094, y: 0.69436646}
     - {x: 0.3955078, y: 0.69454956}
@@ -1182,9 +1182,9 @@ MonoBehaviour:
     - {x: 0.6064453, y: 0.69454956}
     - {x: 0.6044922, y: 0.69436646}
     - {x: 0.60253906, y: 0.69433594}
-    strokeWidth: 5
-  - segmentName: Outline 5
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 5
+    _points:
     - {x: 0.60253906, y: 0.69433594}
     - {x: 0.60232544, y: 0.69628906}
     - {x: 0.6018677, y: 0.6982422}
@@ -1225,9 +1225,9 @@ MonoBehaviour:
     - {x: 0.5678406, y: 0.7353821}
     - {x: 0.5667114, y: 0.7373047}
     - {x: 0.5654297, y: 0.7392578}
-    strokeWidth: 5
-  - segmentName: Outline 6
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 6
+    _points:
     - {x: 0.43066406, y: 0.7373047}
     - {x: 0.43066406, y: 0.7392578}
     - {x: 0.43066406, y: 0.74121094}
@@ -1272,9 +1272,9 @@ MonoBehaviour:
     - {x: 0.43066406, y: 0.8173828}
     - {x: 0.43066406, y: 0.81933594}
     - {x: 0.43066406, y: 0.82128906}
-    strokeWidth: 5
-  - segmentName: Outline 7
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 7
+    _points:
     - {x: 0.43066406, y: 0.7373047}
     - {x: 0.4326172, y: 0.7373352}
     - {x: 0.4345703, y: 0.7375183}
@@ -1312,9 +1312,9 @@ MonoBehaviour:
     - {x: 0.4970703, y: 0.7529297}
     - {x: 0.49902344, y: 0.7529297}
     - {x: 0.50097656, y: 0.7529297}
-    strokeWidth: 5
-  - segmentName: Outline 8
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 8
+    _points:
     - {x: 0.5654297, y: 0.7392578}
     - {x: 0.5664978, y: 0.74121094}
     - {x: 0.5671387, y: 0.74316406}
@@ -1358,9 +1358,9 @@ MonoBehaviour:
     - {x: 0.5673828, y: 0.8173828}
     - {x: 0.5673828, y: 0.81933594}
     - {x: 0.5673828, y: 0.82128906}
-    strokeWidth: 5
-  - segmentName: Outline 9
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 9
+    _points:
     - {x: 0.5654297, y: 0.7392578}
     - {x: 0.56347656, y: 0.73947144}
     - {x: 0.56152344, y: 0.7399292}
@@ -1395,9 +1395,9 @@ MonoBehaviour:
     - {x: 0.5048828, y: 0.7529297}
     - {x: 0.5029297, y: 0.7529297}
     - {x: 0.50097656, y: 0.7529297}
-    strokeWidth: 5
-  - segmentName: Outline 10
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 10
+    _points:
     - {x: 0.50097656, y: 0.7529297}
     - {x: 0.50097656, y: 0.7548828}
     - {x: 0.50097656, y: 0.75683594}
@@ -1444,8 +1444,8 @@ MonoBehaviour:
     - {x: 0.50097656, y: 0.83691406}
     - {x: 0.50097656, y: 0.8388672}
     - {x: 0.50097656, y: 0.8408203}
-    strokeWidth: 5
-  parts: []
-  completionThreshold: 0.99
-  snapDistance: 20
-  tracingLineThickness: 10
+    _strokeWidth: 5
+  _parts: []
+  _completionThreshold: 0.99
+  _snapDistance: 20
+  _tracingLineThickness: 10

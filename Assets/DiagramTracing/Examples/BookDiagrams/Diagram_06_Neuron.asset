@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42f09b25e622514e90147264cdd5bbc, type: 3}
   m_Name: Diagram_06_Neuron
   m_EditorClassIdentifier: 
-  diagramTitle: Neuron Nerve Cell
-  diagramSummary: Trace the soma cell body, dendrites, long axon, and terminal buttons.
-  outlineTexture: {fileID: 2800000, guid: 4e2952bd1289caa4a898f5e367620781, type: 3}
-  fullColoredTexture: {fileID: 2800000, guid: c7f0bbcecbb0add44adc8b83e2eb10ed, type: 3}
-  structurePrefab: {fileID: 0}
-  pathSegments:
-  - segmentName: Outline 1
-    points:
+  _diagramTitle: Neuron Nerve Cell
+  _diagramSummary: Trace the soma cell body, dendrites, long axon, and terminal buttons.
+  _outlineTexture: {fileID: 2800000, guid: 4e2952bd1289caa4a898f5e367620781, type: 3}
+  _fullColoredTexture: {fileID: 2800000, guid: c7f0bbcecbb0add44adc8b83e2eb10ed, type: 3}
+  _structurePrefab: {fileID: 0}
+  _pathSegments:
+  - _segmentName: Outline 1
+    _points:
     - {x: 0.27441406, y: 0.32128906}
     - {x: 0.27441406, y: 0.3232422}
     - {x: 0.27441406, y: 0.3251953}
@@ -75,9 +75,9 @@ MonoBehaviour:
     - {x: 0.27441406, y: 0.42285156}
     - {x: 0.27441406, y: 0.4248047}
     - {x: 0.27441406, y: 0.4267578}
-    strokeWidth: 5
-  - segmentName: Outline 2
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 2
+    _points:
     - {x: 0.12792969, y: 0.3642578}
     - {x: 0.12988281, y: 0.36618042}
     - {x: 0.13180542, y: 0.36795044}
@@ -148,9 +148,9 @@ MonoBehaviour:
     - {x: 0.2182312, y: 0.4458313}
     - {x: 0.21905518, y: 0.44696045}
     - {x: 0.21972656, y: 0.4482422}
-    strokeWidth: 5
-  - segmentName: Outline 3
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 3
+    _points:
     - {x: 0.9256897, y: 0.41610718}
     - {x: 0.92700195, y: 0.41696167}
     - {x: 0.92874146, y: 0.41763306}
@@ -194,9 +194,9 @@ MonoBehaviour:
     - {x: 0.9241638, y: 0.41305542}
     - {x: 0.9248352, y: 0.41479492}
     - {x: 0.9256897, y: 0.41610718}
-    strokeWidth: 5
-  - segmentName: Outline 4
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 4
+    _points:
     - {x: 0.9248047, y: 0.4169922}
     - {x: 0.92285156, y: 0.4189453}
     - {x: 0.92089844, y: 0.42089844}
@@ -241,9 +241,9 @@ MonoBehaviour:
     - {x: 0.8493042, y: 0.4970703}
     - {x: 0.84884644, y: 0.49902344}
     - {x: 0.8486328, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 5
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 5
+    _points:
     - {x: 0.27441406, y: 0.4267578}
     - {x: 0.2763672, y: 0.42678833}
     - {x: 0.2783203, y: 0.42697144}
@@ -314,9 +314,9 @@ MonoBehaviour:
     - {x: 0.3484192, y: 0.4970703}
     - {x: 0.3486023, y: 0.49902344}
     - {x: 0.3486328, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 6
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 6
+    _points:
     - {x: 0.27441406, y: 0.4267578}
     - {x: 0.27246094, y: 0.42678833}
     - {x: 0.2705078, y: 0.42697144}
@@ -352,9 +352,9 @@ MonoBehaviour:
     - {x: 0.2236023, y: 0.4467163}
     - {x: 0.22167969, y: 0.4475708}
     - {x: 0.21972656, y: 0.4482422}
-    strokeWidth: 5
-  - segmentName: Outline 7
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 7
+    _points:
     - {x: 0.21972656, y: 0.4482422}
     - {x: 0.21905518, y: 0.4501648}
     - {x: 0.2182312, y: 0.4519348}
@@ -389,9 +389,9 @@ MonoBehaviour:
     - {x: 0.20019531, y: 0.4970703}
     - {x: 0.20019531, y: 0.49902344}
     - {x: 0.20019531, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 8
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 8
+    _points:
     - {x: 0.09863281, y: 0.50097656}
     - {x: 0.10058594, y: 0.50097656}
     - {x: 0.10253906, y: 0.50097656}
@@ -445,9 +445,9 @@ MonoBehaviour:
     - {x: 0.19628906, y: 0.50097656}
     - {x: 0.19824219, y: 0.50097656}
     - {x: 0.20019531, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 9
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 9
+    _points:
     - {x: 0.20019531, y: 0.50097656}
     - {x: 0.20019531, y: 0.5029297}
     - {x: 0.20019531, y: 0.5048828}
@@ -484,9 +484,9 @@ MonoBehaviour:
     - {x: 0.21951294, y: 0.55197144}
     - {x: 0.21969604, y: 0.55374146}
     - {x: 0.21972656, y: 0.55566406}
-    strokeWidth: 5
-  - segmentName: Outline 10
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 10
+    _points:
     - {x: 0.3486328, y: 0.50097656}
     - {x: 0.3486023, y: 0.5029297}
     - {x: 0.3484192, y: 0.5048828}
@@ -557,9 +557,9 @@ MonoBehaviour:
     - {x: 0.2783203, y: 0.5751953}
     - {x: 0.2763672, y: 0.5751953}
     - {x: 0.27441406, y: 0.5751953}
-    strokeWidth: 5
-  - segmentName: Outline 11
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 11
+    _points:
     - {x: 0.3486328, y: 0.50097656}
     - {x: 0.35058594, y: 0.50097656}
     - {x: 0.35253906, y: 0.50097656}
@@ -573,9 +573,9 @@ MonoBehaviour:
     - {x: 0.36816406, y: 0.50097656}
     - {x: 0.3701172, y: 0.50097656}
     - {x: 0.3720703, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 12
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 12
+    _points:
     - {x: 0.3720703, y: 0.50097656}
     - {x: 0.3720703, y: 0.5029297}
     - {x: 0.3720703, y: 0.5048828}
@@ -629,9 +629,9 @@ MonoBehaviour:
     - {x: 0.4501953, y: 0.5048828}
     - {x: 0.4501953, y: 0.5029297}
     - {x: 0.4501953, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 13
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 13
+    _points:
     - {x: 0.3720703, y: 0.50097656}
     - {x: 0.37402344, y: 0.50097656}
     - {x: 0.37597656, y: 0.50097656}
@@ -673,9 +673,9 @@ MonoBehaviour:
     - {x: 0.44628906, y: 0.50097656}
     - {x: 0.4482422, y: 0.50097656}
     - {x: 0.4501953, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 14
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 14
+    _points:
     - {x: 0.3720703, y: 0.50097656}
     - {x: 0.3720703, y: 0.49902344}
     - {x: 0.3720703, y: 0.4970703}
@@ -729,9 +729,9 @@ MonoBehaviour:
     - {x: 0.4508667, y: 0.4970703}
     - {x: 0.45150757, y: 0.49902344}
     - {x: 0.45214844, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 15
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 15
+    _points:
     - {x: 0.45214844, y: 0.50097656}
     - {x: 0.45410156, y: 0.50097656}
     - {x: 0.4560547, y: 0.50097656}
@@ -752,9 +752,9 @@ MonoBehaviour:
     - {x: 0.48535156, y: 0.50097656}
     - {x: 0.4873047, y: 0.50097656}
     - {x: 0.4892578, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 16
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 16
+    _points:
     - {x: 0.4892578, y: 0.50097656}
     - {x: 0.4892578, y: 0.5029297}
     - {x: 0.4892578, y: 0.5048828}
@@ -808,9 +808,9 @@ MonoBehaviour:
     - {x: 0.5673828, y: 0.5048828}
     - {x: 0.5673828, y: 0.5029297}
     - {x: 0.5673828, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 17
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 17
+    _points:
     - {x: 0.4892578, y: 0.50097656}
     - {x: 0.49121094, y: 0.50097656}
     - {x: 0.49316406, y: 0.50097656}
@@ -852,9 +852,9 @@ MonoBehaviour:
     - {x: 0.56347656, y: 0.50097656}
     - {x: 0.5654297, y: 0.50097656}
     - {x: 0.5673828, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 18
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 18
+    _points:
     - {x: 0.4892578, y: 0.50097656}
     - {x: 0.4892578, y: 0.49902344}
     - {x: 0.4892578, y: 0.4970703}
@@ -908,9 +908,9 @@ MonoBehaviour:
     - {x: 0.5680542, y: 0.4970703}
     - {x: 0.56869507, y: 0.49902344}
     - {x: 0.56933594, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 19
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 19
+    _points:
     - {x: 0.56933594, y: 0.50097656}
     - {x: 0.57128906, y: 0.50097656}
     - {x: 0.5732422, y: 0.50097656}
@@ -931,9 +931,9 @@ MonoBehaviour:
     - {x: 0.60253906, y: 0.50097656}
     - {x: 0.6044922, y: 0.50097656}
     - {x: 0.6064453, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 20
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 20
+    _points:
     - {x: 0.6064453, y: 0.50097656}
     - {x: 0.6064453, y: 0.5029297}
     - {x: 0.6064453, y: 0.5048828}
@@ -987,9 +987,9 @@ MonoBehaviour:
     - {x: 0.6845703, y: 0.5048828}
     - {x: 0.6845703, y: 0.5029297}
     - {x: 0.6845703, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 21
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 21
+    _points:
     - {x: 0.6064453, y: 0.50097656}
     - {x: 0.60839844, y: 0.50097656}
     - {x: 0.61035156, y: 0.50097656}
@@ -1031,9 +1031,9 @@ MonoBehaviour:
     - {x: 0.68066406, y: 0.50097656}
     - {x: 0.6826172, y: 0.50097656}
     - {x: 0.6845703, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 22
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 22
+    _points:
     - {x: 0.6064453, y: 0.50097656}
     - {x: 0.6064453, y: 0.49902344}
     - {x: 0.6064453, y: 0.4970703}
@@ -1087,9 +1087,9 @@ MonoBehaviour:
     - {x: 0.6852417, y: 0.4970703}
     - {x: 0.68588257, y: 0.49902344}
     - {x: 0.68652344, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 23
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 23
+    _points:
     - {x: 0.68652344, y: 0.50097656}
     - {x: 0.68847656, y: 0.50097656}
     - {x: 0.6904297, y: 0.50097656}
@@ -1110,9 +1110,9 @@ MonoBehaviour:
     - {x: 0.71972656, y: 0.50097656}
     - {x: 0.7216797, y: 0.50097656}
     - {x: 0.7236328, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 24
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 24
+    _points:
     - {x: 0.7236328, y: 0.50097656}
     - {x: 0.7236328, y: 0.5029297}
     - {x: 0.7236328, y: 0.5048828}
@@ -1166,9 +1166,9 @@ MonoBehaviour:
     - {x: 0.8017578, y: 0.5048828}
     - {x: 0.8017578, y: 0.5029297}
     - {x: 0.8017578, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 25
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 25
+    _points:
     - {x: 0.7236328, y: 0.50097656}
     - {x: 0.72558594, y: 0.50097656}
     - {x: 0.72753906, y: 0.50097656}
@@ -1210,9 +1210,9 @@ MonoBehaviour:
     - {x: 0.79785156, y: 0.50097656}
     - {x: 0.7998047, y: 0.50097656}
     - {x: 0.8017578, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 26
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 26
+    _points:
     - {x: 0.7236328, y: 0.50097656}
     - {x: 0.7236328, y: 0.49902344}
     - {x: 0.7236328, y: 0.4970703}
@@ -1266,9 +1266,9 @@ MonoBehaviour:
     - {x: 0.8024292, y: 0.4970703}
     - {x: 0.80307007, y: 0.49902344}
     - {x: 0.80371094, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 27
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 27
+    _points:
     - {x: 0.80371094, y: 0.50097656}
     - {x: 0.80566406, y: 0.50097656}
     - {x: 0.8076172, y: 0.50097656}
@@ -1293,9 +1293,9 @@ MonoBehaviour:
     - {x: 0.84472656, y: 0.50097656}
     - {x: 0.8466797, y: 0.50097656}
     - {x: 0.8486328, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 28
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 28
+    _points:
     - {x: 0.8486328, y: 0.50097656}
     - {x: 0.84884644, y: 0.5029297}
     - {x: 0.8493042, y: 0.5048828}
@@ -1342,9 +1342,9 @@ MonoBehaviour:
     - {x: 0.9232788, y: 0.58428955}
     - {x: 0.9241333, y: 0.5856018}
     - {x: 0.9248047, y: 0.58691406}
-    strokeWidth: 5
-  - segmentName: Outline 29
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 29
+    _points:
     - {x: 0.8486328, y: 0.50097656}
     - {x: 0.85058594, y: 0.50097656}
     - {x: 0.85253906, y: 0.50097656}
@@ -1391,9 +1391,9 @@ MonoBehaviour:
     - {x: 0.9326172, y: 0.50097656}
     - {x: 0.9345703, y: 0.50097656}
     - {x: 0.93652344, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 30
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 30
+    _points:
     - {x: 0.93652344, y: 0.50097656}
     - {x: 0.93655396, y: 0.5029297}
     - {x: 0.93673706, y: 0.5048828}
@@ -1435,9 +1435,9 @@ MonoBehaviour:
     - {x: 0.93673706, y: 0.4970703}
     - {x: 0.93655396, y: 0.49902344}
     - {x: 0.93652344, y: 0.50097656}
-    strokeWidth: 5
-  - segmentName: Outline 31
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 31
+    _points:
     - {x: 0.21972656, y: 0.55566406}
     - {x: 0.22164917, y: 0.5556946}
     - {x: 0.22341919, y: 0.5558777}
@@ -1474,9 +1474,9 @@ MonoBehaviour:
     - {x: 0.2705078, y: 0.5751953}
     - {x: 0.27246094, y: 0.5751953}
     - {x: 0.27441406, y: 0.5751953}
-    strokeWidth: 5
-  - segmentName: Outline 32
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 32
+    _points:
     - {x: 0.21972656, y: 0.55566406}
     - {x: 0.21780396, y: 0.55740356}
     - {x: 0.21603394, y: 0.5588684}
@@ -1545,9 +1545,9 @@ MonoBehaviour:
     - {x: 0.13162231, y: 0.63449097}
     - {x: 0.1298523, y: 0.6359558}
     - {x: 0.12792969, y: 0.6376953}
-    strokeWidth: 5
-  - segmentName: Outline 33
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 33
+    _points:
     - {x: 0.27441406, y: 0.5751953}
     - {x: 0.27441406, y: 0.57714844}
     - {x: 0.27441406, y: 0.57910156}
@@ -1606,9 +1606,9 @@ MonoBehaviour:
     - {x: 0.27441406, y: 0.6826172}
     - {x: 0.27441406, y: 0.6845703}
     - {x: 0.27441406, y: 0.68652344}
-    strokeWidth: 5
-  - segmentName: Outline 34
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 34
+    _points:
     - {x: 0.9255066, y: 0.58758545}
     - {x: 0.92437744, y: 0.5890808}
     - {x: 0.92355347, y: 0.59085083}
@@ -1650,9 +1650,9 @@ MonoBehaviour:
     - {x: 0.92874146, y: 0.58499146}
     - {x: 0.92697144, y: 0.5862732}
     - {x: 0.9255066, y: 0.58758545}
-    strokeWidth: 5
-  - segmentName: Outline 35
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 35
+    _points:
     - {x: 0.2705078, y: 0.47235107}
     - {x: 0.27246094, y: 0.4718933}
     - {x: 0.27441406, y: 0.47174072}
@@ -1746,8 +1746,8 @@ MonoBehaviour:
     - {x: 0.26663208, y: 0.4734497}
     - {x: 0.2685547, y: 0.47296143}
     - {x: 0.2705078, y: 0.47235107}
-    strokeWidth: 5
-  parts: []
-  completionThreshold: 0.99
-  snapDistance: 20
-  tracingLineThickness: 10
+    _strokeWidth: 5
+  _parts: []
+  _completionThreshold: 0.99
+  _snapDistance: 20
+  _tracingLineThickness: 10

@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42f09b25e622514e90147264cdd5bbc, type: 3}
   m_Name: Diagram_04_PlantCell
   m_EditorClassIdentifier: 
-  diagramTitle: Plant Cell Structure
-  diagramSummary: Trace the rigid outer cell wall, cell membrane, and large central
+  _diagramTitle: Plant Cell Structure
+  _diagramSummary: Trace the rigid outer cell wall, cell membrane, and large central
     vacuole.
-  outlineTexture: {fileID: 2800000, guid: f553fd8fd39a5a7498ba82418eb0d691, type: 3}
-  fullColoredTexture: {fileID: 2800000, guid: c3ace1d83ce6bc746b633955a111727b, type: 3}
-  structurePrefab: {fileID: 0}
-  pathSegments:
-  - segmentName: Outline 1
-    points:
+  _outlineTexture: {fileID: 2800000, guid: f553fd8fd39a5a7498ba82418eb0d691, type: 3}
+  _fullColoredTexture: {fileID: 2800000, guid: c3ace1d83ce6bc746b633955a111727b, type: 3}
+  _structurePrefab: {fileID: 0}
+  _pathSegments:
+  - _segmentName: Outline 1
+    _points:
     - {x: 0.19238281, y: 0.11883545}
     - {x: 0.19433594, y: 0.118377686}
     - {x: 0.19628906, y: 0.11819458}
@@ -1522,9 +1522,9 @@ MonoBehaviour:
     - {x: 0.18847656, y: 0.119903564}
     - {x: 0.19042969, y: 0.1194458}
     - {x: 0.19238281, y: 0.11883545}
-    strokeWidth: 5
-  - segmentName: Outline 2
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 2
+    _points:
     - {x: 0.22167969, y: 0.15789795}
     - {x: 0.22363281, y: 0.15744019}
     - {x: 0.22558594, y: 0.15725708}
@@ -2882,9 +2882,9 @@ MonoBehaviour:
     - {x: 0.21777344, y: 0.15896606}
     - {x: 0.21972656, y: 0.1585083}
     - {x: 0.22167969, y: 0.15789795}
-    strokeWidth: 5
-  - segmentName: Outline 3
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 3
+    _points:
     - {x: 0.70996094, y: 0.1913147}
     - {x: 0.71191406, y: 0.1913147}
     - {x: 0.7138672, y: 0.19174194}
@@ -3004,9 +3004,9 @@ MonoBehaviour:
     - {x: 0.7060547, y: 0.19216919}
     - {x: 0.7080078, y: 0.19174194}
     - {x: 0.70996094, y: 0.1913147}
-    strokeWidth: 5
-  - segmentName: Outline 4
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 4
+    _points:
     - {x: 0.32910156, y: 0.2555542}
     - {x: 0.3310547, y: 0.25509644}
     - {x: 0.3330078, y: 0.25491333}
@@ -3804,9 +3804,9 @@ MonoBehaviour:
     - {x: 0.3251953, y: 0.2566223}
     - {x: 0.32714844, y: 0.25616455}
     - {x: 0.32910156, y: 0.2555542}
-    strokeWidth: 5
-  - segmentName: Outline 5
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 5
+    _points:
     - {x: 0.7080078, y: 0.33758545}
     - {x: 0.70996094, y: 0.3371277}
     - {x: 0.71191406, y: 0.33694458}
@@ -4060,9 +4060,9 @@ MonoBehaviour:
     - {x: 0.70410156, y: 0.33865356}
     - {x: 0.7060547, y: 0.3381958}
     - {x: 0.7080078, y: 0.33758545}
-    strokeWidth: 5
-  - segmentName: Outline 6
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 6
+    _points:
     - {x: 0.7028198, y: 0.38641357}
     - {x: 0.70150757, y: 0.38705444}
     - {x: 0.7001953, y: 0.3876953}
@@ -4168,9 +4168,9 @@ MonoBehaviour:
     - {x: 0.7060852, y: 0.3857727}
     - {x: 0.7043152, y: 0.3859558}
     - {x: 0.7028198, y: 0.38641357}
-    strokeWidth: 5
-  - segmentName: Outline 7
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 7
+    _points:
     - {x: 0.7373047, y: 0.6774292}
     - {x: 0.7392578, y: 0.67697144}
     - {x: 0.74121094, y: 0.67678833}
@@ -4286,9 +4286,9 @@ MonoBehaviour:
     - {x: 0.73339844, y: 0.6784973}
     - {x: 0.73535156, y: 0.67803955}
     - {x: 0.7373047, y: 0.6774292}
-    strokeWidth: 5
-  - segmentName: Outline 8
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 8
+    _points:
     - {x: 0.20800781, y: 0.72821045}
     - {x: 0.20996094, y: 0.7277527}
     - {x: 0.21191406, y: 0.7275696}
@@ -4406,8 +4406,8 @@ MonoBehaviour:
     - {x: 0.20413208, y: 0.7293091}
     - {x: 0.20605469, y: 0.7288208}
     - {x: 0.20800781, y: 0.72821045}
-    strokeWidth: 5
-  parts: []
-  completionThreshold: 0.99
-  snapDistance: 20
-  tracingLineThickness: 10
+    _strokeWidth: 5
+  _parts: []
+  _completionThreshold: 0.99
+  _snapDistance: 20
+  _tracingLineThickness: 10

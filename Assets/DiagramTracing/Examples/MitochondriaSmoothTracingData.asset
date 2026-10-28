@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42f09b25e622514e90147264cdd5bbc, type: 3}
   m_Name: MitochondriaSmoothTracingData
   m_EditorClassIdentifier: 
-  diagramTitle: Mitochondria Organelle
-  diagramSummary: Trace the outer capsule and inner folded cristae of the mitochondrion
+  _diagramTitle: Mitochondria Organelle
+  _diagramSummary: Trace the outer capsule and inner folded cristae of the mitochondrion
     to reveal its energy-producing cellular machinery.
-  outlineTexture: {fileID: 2800000, guid: 651ef0d2254a2bf489115bcbb22c65ac, type: 3}
-  fullColoredTexture: {fileID: 2800000, guid: 117c400b728395345864721f2546e116, type: 3}
-  structurePrefab: {fileID: 192567765264448885, guid: 2914ce8ba4ab14a4cbe04d1c90242827, type: 3}
-  pathSegments:
-  - segmentName: Outline 1
-    points:
+  _outlineTexture: {fileID: 2800000, guid: 651ef0d2254a2bf489115bcbb22c65ac, type: 3}
+  _fullColoredTexture: {fileID: 2800000, guid: 117c400b728395345864721f2546e116, type: 3}
+  _structurePrefab: {fileID: 192567765264448885, guid: 2914ce8ba4ab14a4cbe04d1c90242827, type: 3}
+  _pathSegments:
+  - _segmentName: Outline 1
+    _points:
     - {x: 0.48095703, y: 0.35205078}
     - {x: 0.48095703, y: 0.35302734}
     - {x: 0.4809723, y: 0.35398865}
@@ -1136,9 +1136,9 @@ MonoBehaviour:
     - {x: 0.71936035, y: 0.64697266}
     - {x: 0.7196808, y: 0.6479492}
     - {x: 0.72021484, y: 0.6489258}
-    strokeWidth: 5
-  - segmentName: Outline 2
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 2
+    _points:
     - {x: 0.7397461, y: 0.4008789}
     - {x: 0.7402954, y: 0.40185547}
     - {x: 0.7407074, y: 0.40283203}
@@ -1402,9 +1402,9 @@ MonoBehaviour:
     - {x: 0.8390045, y: 0.48158264}
     - {x: 0.83924866, y: 0.48085022}
     - {x: 0.83935547, y: 0.47998047}
-    strokeWidth: 5
-  - segmentName: Outline 3
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 3
+    _points:
     - {x: 0.20166016, y: 0.50146484}
     - {x: 0.20176697, y: 0.5023346}
     - {x: 0.20201111, y: 0.503067}
@@ -2303,9 +2303,9 @@ MonoBehaviour:
     - {x: 0.4390869, y: 0.6459961}
     - {x: 0.43940735, y: 0.64697266}
     - {x: 0.4399414, y: 0.6479492}
-    strokeWidth: 5
-  - segmentName: Outline 4
-    points:
+    _strokeWidth: 5
+  - _segmentName: Outline 4
+    _points:
     - {x: 0.48388672, y: 0.22055054}
     - {x: 0.48486328, y: 0.22032166}
     - {x: 0.48583984, y: 0.2202301}
@@ -4795,36 +4795,33 @@ MonoBehaviour:
     - {x: 0.4819336, y: 0.2210846}
     - {x: 0.48291016, y: 0.22085571}
     - {x: 0.48388672, y: 0.22055054}
-    strokeWidth: 5
-  parts:
-  - partId: OuterMembrane
-    displayName: Outer Membrane
-    description: Smooth outer phospholipid bilayer enclosing the entire organelle.
-    accentColor: {r: 0.2, g: 0.7, b: 1, a: 1}
-    fillMasks: []
-  - partId: InnerMembrane
-    displayName: Inner Membrane
-    description: Highly specialized membrane containing electron transport chain
-      complexes.
-    accentColor: {r: 1, g: 0.6, b: 0.2, a: 1}
-    fillMasks: []
-  - partId: Matrix
-    displayName: Mitochondrial Matrix
-    description: Fluid interior filled with enzymes, mitochondrial DNA, and metabolic
-      machinery.
-    accentColor: {r: 0.3, g: 0.9, b: 0.4, a: 1}
-    fillMasks: []
-  - partId: Cristae
-    displayName: Cristae Folds
-    description: Deep folds of the inner membrane maximizing surface area for ATP
-      production.
-    accentColor: {r: 0.9, g: 0.3, b: 0.8, a: 1}
-    fillMasks: []
-  - partId: Ribosomes
-    displayName: Ribosomes & Granules
-    description: Protein synthesizing complexes operating inside the organelle.
-    accentColor: {r: 0.95, g: 0.85, b: 0.2, a: 1}
-    fillMasks: []
-  completionThreshold: 0.99
-  snapDistance: 25
-  tracingLineThickness: 20
+    _strokeWidth: 5
+  _parts:
+  - _partId: 
+    _displayName: 
+    _description: 
+    _accentColor: {r: 0.2, g: 0.7, b: 1, a: 1}
+    _fillMasks: []
+  - _partId: 
+    _displayName: 
+    _description: 
+    _accentColor: {r: 0.2, g: 0.7, b: 1, a: 1}
+    _fillMasks: []
+  - _partId: 
+    _displayName: 
+    _description: 
+    _accentColor: {r: 0.2, g: 0.7, b: 1, a: 1}
+    _fillMasks: []
+  - _partId: 
+    _displayName: 
+    _description: 
+    _accentColor: {r: 0.2, g: 0.7, b: 1, a: 1}
+    _fillMasks: []
+  - _partId: 
+    _displayName: 
+    _description: 
+    _accentColor: {r: 0.2, g: 0.7, b: 1, a: 1}
+    _fillMasks: []
+  _completionThreshold: 0.99
+  _snapDistance: 25
+  _tracingLineThickness: 20
