@@ -11,12 +11,11 @@ namespace RutherfordSim.Bio.Tracing
 
         public static List<OutlinePathSegment> Extract(Texture2D texture)
         {
-            if (texture == null) throw new ArgumentNullException(nameof(texture));
+            if ( !texture ) throw new ArgumentNullException(nameof(texture));
             int w = texture.width, h = texture.height;
-            if (Mathf.Max(w, h) > 2048)
-                throw new ArgumentException("Import the outline at 2048 pixels or less for path generation.");
+            if ( Mathf.Max(w, h) > 2048 ) throw new ArgumentException("Import the outline at 2048 pixels or less for path generation.");
             Color32[] pixels;
-            if (texture.isReadable) pixels = texture.GetPixels32();
+            if ( texture.isReadable ) pixels = texture.GetPixels32();
             else
             {
                 var previous = RenderTexture.active;
@@ -34,7 +33,7 @@ namespace RutherfordSim.Bio.Tracing
                 {
                     RenderTexture.active = previous;
                     RenderTexture.ReleaseTemporary(rt);
-                    if (Application.isPlaying) UnityEngine.Object.Destroy(copy);
+                    if ( Application.isPlaying ) UnityEngine.Object.Destroy(copy);
                     else UnityEngine.Object.DestroyImmediate(copy);
                 }
             }
@@ -43,84 +42,87 @@ namespace RutherfordSim.Bio.Tracing
 
         public static List<OutlinePathSegment> Extract(Color32[] pixels, int w, int h)
         {
-            if (pixels == null || pixels.Length != w * h || w < 3 || h < 3)
-                throw new ArgumentException("Invalid outline dimensions.");
-            int transparent = 0;
+            if ( pixels == null || pixels.Length != w * h || w < 3 || h < 3 ) throw new ArgumentException("Invalid outline dimensions.");
+            int transparent = 0, borderCount = 0;
             double border = 0;
-            int borderCount = 0;
-            for (int y = 0; y < h; y++) for (int x = 0; x < w; x++)
-            {
-                var c = pixels[y * w + x];
-                if (c.a < 32) transparent++;
-                if (x == 0 || y == 0 || x == w - 1 || y == h - 1)
-                { border += (c.r + c.g + c.b) / 765.0; borderCount++; }
-            }
+            for ( int y = 0; y < h; y++ )
+                for ( int x = 0; x < w; x++ )
+                {
+                    var c = pixels[y * w + x];
+                    if ( c.a < 32 ) transparent++;
+                    if ( x == 0 || y == 0 || x == w - 1 || y == h - 1 )
+                    {
+                        border += (c.r + c.g + c.b) / 765.0;
+                        borderCount++;
+                    }
+                }
             bool alphaOutline = transparent > pixels.Length / 20;
             bool darkBackground = border / borderCount < .5;
             int width = w + 2, height = h + 2;
             var mask = new bool[width * height];
-            for (int y = 0; y < h; y++) for (int x = 0; x < w; x++)
-            {
-                Color32 c = pixels[y * w + x];
-                float light = (c.r + c.g + c.b) / 765f;
-                mask[(y + 1) * width + x + 1] = c.a > 64 &&
-                    (alphaOutline || (darkBackground ? light > .55f : light < .65f));
-            }
+            for ( int y = 0; y < h; y++ )
+                for ( int x = 0; x < w; x++ )
+                {
+                    Color32 c = pixels[y * w + x];
+                    float light = (c.r + c.g + c.b) / 765f;
+                    mask[(y + 1) * width + x + 1] = c.a > 64 && (alphaOutline || (darkBackground ? light > .55f : light < .65f));
+                }
             Thin(mask, width, height);
             var adjacency = new Dictionary<int, List<int>>();
-            for (int y = 1; y < height - 1; y++) for (int x = 1; x < width - 1; x++)
-            {
-                int p = y * width + x;
-                if (!mask[p]) continue;
-                var neighbors = new List<int>(8);
-                for (int d = 0; d < 8; d++)
+            for ( int y = 1; y < height - 1; y++ )
+                for ( int x = 1; x < width - 1; x++ )
                 {
-                    int q = p + DY[d] * width + DX[d];
-                    if (!mask[q]) continue;
-                    if (DX[d] != 0 && DY[d] != 0 &&
-                        (mask[p + DX[d]] || mask[p + DY[d] * width])) continue;
-                    neighbors.Add(q);
+                    int p = y * width + x;
+                    if ( !mask[p] ) continue;
+                    var neighbors = new List<int>(8);
+                    for ( int d = 0; d < 8; d++ )
+                    {
+                        int q = p + DY[d] * width + DX[d];
+                        if ( !mask[q] ) continue;
+                        if ( DX[d] != 0 && DY[d] != 0 && (mask[p + DX[d]] || mask[p + DY[d] * width]) ) continue;
+                        neighbors.Add(q);
+                    }
+                    adjacency[p] = neighbors;
                 }
-                adjacency[p] = neighbors;
-            }
             var visited = new HashSet<ulong>();
             var paths = new List<OutlinePathSegment>();
-            foreach (var entry in adjacency)
-                if (entry.Value.Count != 2)
-                    foreach (int next in entry.Value) Walk(entry.Key, next);
-            foreach (var entry in adjacency)
-                foreach (int next in entry.Value) Walk(entry.Key, next);
+            foreach ( var entry in adjacency )
+                if ( entry.Value.Count != 2 )
+                    foreach ( int next in entry.Value ) Walk(entry.Key, next);
+            foreach ( var entry in adjacency )
+                foreach ( int next in entry.Value ) Walk(entry.Key, next);
             return paths;
 
             void Walk(int first, int next)
             {
-                if (visited.Contains(Edge(first, next))) return;
+                if ( visited.Contains(Edge(first, next)) ) return;
                 var points = new List<Vector2> { Point(first) };
                 int previous = first, current = next;
-                while (true)
+                while ( true )
                 {
-                    if (!visited.Add(Edge(previous, current))) break;
+                    if ( !visited.Add(Edge(previous, current)) ) break;
                     points.Add(Point(current));
-                    if (current == first || adjacency[current].Count != 2) break;
+                    if ( current == first || adjacency[current].Count != 2 ) break;
                     var neighbors = adjacency[current];
                     int following = neighbors[0] == previous ? neighbors[1] : neighbors[0];
-                    previous = current; current = following;
+                    previous = current;
+                    current = following;
                 }
-                if (points.Count < 3) return;
+                if ( points.Count < 3 ) return;
                 bool closed = (points[0] - points[points.Count - 1]).sqrMagnitude < .001f;
-                for (int pass = 0; pass < 3; pass++)
+                for ( int pass = 0; pass < 3; pass++ )
                 {
                     var smooth = new List<Vector2>(points);
-                    for (int i = 1; i < points.Count - 1; i++)
+                    for ( int i = 1; i < points.Count - 1; i++ )
                         smooth[i] = .25f * points[i - 1] + .5f * points[i] + .25f * points[i + 1];
-                    if (closed)
+                    if ( closed )
                     {
                         smooth[0] = .25f * points[points.Count - 2] + .5f * points[0] + .25f * points[1];
                         smooth[smooth.Count - 1] = smooth[0];
                     }
                     points = smooth;
                 }
-                for (int i = 0; i < points.Count; i++)
+                for ( int i = 0; i < points.Count; i++ )
                     points[i] = new Vector2(points[i].x / w, points[i].y / h);
                 paths.Add(new OutlinePathSegment { segmentName = "Outline " + (paths.Count + 1), points = points, strokeWidth = 5 });
             }
@@ -137,26 +139,32 @@ namespace RutherfordSim.Bio.Tracing
             do
             {
                 changed = false;
-                for (int pass = 0; pass < 2; pass++)
+                for ( int pass = 0; pass < 2; pass++ )
                 {
                     remove.Clear();
-                    for (int y = 1; y < h - 1; y++) for (int x = 1; x < w - 1; x++)
-                    {
-                        int p = y * w + x;
-                        if (!image[p]) continue;
-                        int count = 0, transitions = 0;
-                        for (int d = 0; d < 8; d++) { n[d] = image[p + DY[d] * w + DX[d]]; if (n[d]) count++; }
-                        if (count < 2 || count > 6) continue;
-                        for (int d = 0; d < 8; d++) if (!n[d] && n[(d + 1) % 8]) transitions++;
-                        if (transitions != 1) continue;
-                        if (pass == 0 ? (n[0] && n[2] && n[4]) || (n[2] && n[4] && n[6])
-                                      : (n[0] && n[2] && n[6]) || (n[0] && n[4] && n[6])) continue;
-                        remove.Add(p);
-                    }
-                    foreach (int p in remove) image[p] = false;
+                    for ( int y = 1; y < h - 1; y++ )
+                        for ( int x = 1; x < w - 1; x++ )
+                        {
+                            int p = y * w + x;
+                            if ( !image[p] ) continue;
+                            int count = 0, transitions = 0;
+                            for ( int d = 0; d < 8; d++ )
+                            {
+                                n[d] = image[p + DY[d] * w + DX[d]];
+                                if ( n[d] ) count++;
+                            }
+                            if ( count < 2 || count > 6 ) continue;
+                            for ( int d = 0; d < 8; d++ )
+                                if ( !n[d] && n[(d + 1) % 8] ) transitions++;
+                            if ( transitions != 1 ) continue;
+                            if ( pass == 0 ? (n[0] && n[2] && n[4]) || (n[2] && n[4] && n[6])
+                                          : (n[0] && n[2] && n[6]) || (n[0] && n[4] && n[6]) ) continue;
+                            remove.Add(p);
+                        }
+                    foreach ( int p in remove ) image[p] = false;
                     changed |= remove.Count > 0;
                 }
-            } while (changed);
+            } while ( changed );
         }
     }
 }
