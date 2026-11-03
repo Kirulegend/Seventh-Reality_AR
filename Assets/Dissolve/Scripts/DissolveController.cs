@@ -47,6 +47,9 @@ namespace DissolveEffect
         {
             _propertyBlock = new MaterialPropertyBlock();
             CollectRenderers();
+            float startVal = _startFullyDissolved ? 1.0f : Mathf.Clamp01(_initialAmount);
+            _currentAmount = startVal;
+            ApplyDissolveToRenderers(startVal);
         }
 
         IEnumerator Start()
@@ -56,11 +59,12 @@ namespace DissolveEffect
                 _currentAmount = 1.0f;
                 ApplyDissolveToRenderers(1.0f);
                 UpdateColliders(false);
+                EnableCanvases(false);
             }
             else
             {
                 _currentAmount = Mathf.Clamp01(_initialAmount);
-                if ( _currentAmount > 0f ) ApplyDissolveToRenderers(_currentAmount);
+                ApplyDissolveToRenderers(_currentAmount);
             }
 
             if ( _overrideColorsOnStart )

@@ -121,14 +121,22 @@ Shader "Dissolve/UI_Dissolve"
                 #endif
 
                 float dissolve = _DissolveAmount;
+                if ( dissolve <= 0.0001 )
+                {
+                    #ifdef UNITY_UI_ALPHACLIP
+                    clip(color.a - 0.001);
+                    #endif
+                    return color;
+                }
+
                 if ( dissolve >= 0.999 ) clip(-1.0);
 
                 float2 cutoutUV = IN.texcoord * _CutoutTiling.xy + _CutoutTiling.zw;
                 float noise = tex2D(_CutoutMap, cutoutUV).r;
 
-                float adjustedAmount = dissolve * (1.0 + _EdgeWidth);
+                float adjustedAmount = dissolve * (1.0 + _EdgeWidth + 0.05) - _EdgeWidth;
                 float clipVal = noise - adjustedAmount;
-                if ( dissolve > 0.001 ) clip(clipVal);
+                clip(clipVal);
 
                 float edgeFactor = saturate(clipVal / max(0.0001, _EdgeWidth));
                 float rampCoord = 1.0 - edgeFactor;
@@ -140,8 +148,8 @@ Shader "Dissolve/UI_Dissolve"
                     glow = rampCol * _EdgeIntensity;
                 }
 
-                float edgePresence = saturate(dissolve * 50.0);
-                half3 finalRGB = lerp(color.rgb, lerp(glow.rgb, color.rgb, edgeFactor), edgePresence);
+                float edgePresence = saturate(dissolve * 30.0);
+                half3 finalRGB = lerp(color.rgb, glow.rgb, edgePresence * (1.0 - edgeFactor));
                 half finalAlpha = color.a;
 
                 #ifdef UNITY_UI_ALPHACLIP

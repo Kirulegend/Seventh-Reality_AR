@@ -211,7 +211,18 @@ Shader "Dissolve/URP_Dissolve"
         DetailedEdge EvaluateEdge(float fieldValue, float progress, float3 positionWS)
         {
             DetailedEdge res;
-            float diff = fieldValue - progress;
+            if ( progress <= 0.0001 )
+            {
+                res.edgeFactor = 0.0;
+                res.ashFactor = 0.0;
+                res.emission = float3(0, 0, 0);
+                return res;
+            }
+
+            if ( progress >= 0.999 ) clip(-1.0);
+
+            float burnThreshold = progress * (1.0 + _EdgeWidth + 0.05) - _EdgeWidth;
+            float diff = fieldValue - burnThreshold;
             clip(diff);
 
             float edge = saturate(1.0 - (diff / max(0.0001, _EdgeWidth)));
@@ -235,9 +246,10 @@ Shader "Dissolve/URP_Dissolve"
                 edgeEmission = (lerp(outerCol, coreCol, core) * edge * pulse) + (coreCol * spark * edge);
             }
 
-            res.edgeFactor = edge;
-            res.ashFactor = ash * (1.0 - edge);
-            res.emission = edgeEmission;
+            float edgeIgnition = saturate(progress * 30.0);
+            res.edgeFactor = edge * edgeIgnition;
+            res.ashFactor = ash * (1.0 - edge) * edgeIgnition;
+            res.emission = edgeEmission * edgeIgnition;
             return res;
         }
         ENDHLSL
@@ -278,13 +290,19 @@ Shader "Dissolve/URP_Dissolve"
             Varyings Vert(Attributes input)
             {
                 Varyings output;
-                float3 worldPosEstimate = TransformObjectToWorld(input.positionOS.xyz);
-                float fieldEstimate = CalculateCutout(worldPosEstimate, input.positionOS.xyz, input.uv);
-                float diffEstimate = fieldEstimate - _DissolveAmount;
-                float edgeEstimate = saturate(1.0 - (diffEstimate / max(0.0001, _EdgeWidth)));
+                float3 displacedPosOS = input.positionOS.xyz;
 
-                float jitter = SimplexNoise(worldPosEstimate * 14.0 + float3(0, _Time.y * 15.0, 0));
-                float3 displacedPosOS = input.positionOS.xyz + input.normalOS * (edgeEstimate * _DisplacementAmount * jitter);
+                if ( _DissolveAmount > 0.0001 && _DissolveAmount < 0.999 )
+                {
+                    float3 worldPosEstimate = TransformObjectToWorld(input.positionOS.xyz);
+                    float fieldEstimate = CalculateCutout(worldPosEstimate, input.positionOS.xyz, input.uv);
+                    float burnThreshold = _DissolveAmount * (1.0 + _EdgeWidth + 0.05) - _EdgeWidth;
+                    float diffEstimate = fieldEstimate - burnThreshold;
+                    float edgeEstimate = saturate(1.0 - (diffEstimate / max(0.0001, _EdgeWidth))) * saturate(_DissolveAmount * 30.0);
+
+                    float jitter = SimplexNoise(worldPosEstimate * 14.0 + float3(0, _Time.y * 15.0, 0));
+                    displacedPosOS += input.normalOS * (edgeEstimate * _DisplacementAmount * jitter);
+                }
 
                 VertexPositionInputs posInputs = GetVertexPositionInputs(displacedPosOS);
                 VertexNormalInputs normInputs = GetVertexNormalInputs(input.normalOS, input.tangentOS);
@@ -382,13 +400,19 @@ Shader "Dissolve/URP_Dissolve"
             Varyings ShadowVert(Attributes input)
             {
                 Varyings output;
-                float3 worldPosEstimate = TransformObjectToWorld(input.positionOS.xyz);
-                float fieldEstimate = CalculateCutout(worldPosEstimate, input.positionOS.xyz, input.uv);
-                float diffEstimate = fieldEstimate - _DissolveAmount;
-                float edgeEstimate = saturate(1.0 - (diffEstimate / max(0.0001, _EdgeWidth)));
+                float3 displacedPosOS = input.positionOS.xyz;
 
-                float jitter = SimplexNoise(worldPosEstimate * 14.0 + float3(0, _Time.y * 15.0, 0));
-                float3 displacedPosOS = input.positionOS.xyz + input.normalOS * (edgeEstimate * _DisplacementAmount * jitter);
+                if ( _DissolveAmount > 0.0001 && _DissolveAmount < 0.999 )
+                {
+                    float3 worldPosEstimate = TransformObjectToWorld(input.positionOS.xyz);
+                    float fieldEstimate = CalculateCutout(worldPosEstimate, input.positionOS.xyz, input.uv);
+                    float burnThreshold = _DissolveAmount * (1.0 + _EdgeWidth + 0.05) - _EdgeWidth;
+                    float diffEstimate = fieldEstimate - burnThreshold;
+                    float edgeEstimate = saturate(1.0 - (diffEstimate / max(0.0001, _EdgeWidth))) * saturate(_DissolveAmount * 30.0);
+
+                    float jitter = SimplexNoise(worldPosEstimate * 14.0 + float3(0, _Time.y * 15.0, 0));
+                    displacedPosOS += input.normalOS * (edgeEstimate * _DisplacementAmount * jitter);
+                }
 
                 VertexPositionInputs posInputs = GetVertexPositionInputs(displacedPosOS);
                 VertexNormalInputs normInputs = GetVertexNormalInputs(input.normalOS);
@@ -402,8 +426,11 @@ Shader "Dissolve/URP_Dissolve"
 
             half4 ShadowFrag(Varyings input) : SV_Target
             {
+                if ( _DissolveAmount <= 0.0001 ) return 0;
+                if ( _DissolveAmount >= 0.999 ) clip(-1.0);
                 float fieldValue = CalculateCutout(input.positionWS, input.positionOS, input.uv);
-                clip(fieldValue - _DissolveAmount);
+                float burnThreshold = _DissolveAmount * (1.0 + _EdgeWidth + 0.05) - _EdgeWidth;
+                clip(fieldValue - burnThreshold);
                 return 0;
             }
             ENDHLSL
@@ -439,13 +466,19 @@ Shader "Dissolve/URP_Dissolve"
             Varyings DepthVert(Attributes input)
             {
                 Varyings output;
-                float3 worldPosEstimate = TransformObjectToWorld(input.positionOS.xyz);
-                float fieldEstimate = CalculateCutout(worldPosEstimate, input.positionOS.xyz, input.uv);
-                float diffEstimate = fieldEstimate - _DissolveAmount;
-                float edgeEstimate = saturate(1.0 - (diffEstimate / max(0.0001, _EdgeWidth)));
+                float3 displacedPosOS = input.positionOS.xyz;
 
-                float jitter = SimplexNoise(worldPosEstimate * 14.0 + float3(0, _Time.y * 15.0, 0));
-                float3 displacedPosOS = input.positionOS.xyz + input.normalOS * (edgeEstimate * _DisplacementAmount * jitter);
+                if ( _DissolveAmount > 0.0001 && _DissolveAmount < 0.999 )
+                {
+                    float3 worldPosEstimate = TransformObjectToWorld(input.positionOS.xyz);
+                    float fieldEstimate = CalculateCutout(worldPosEstimate, input.positionOS.xyz, input.uv);
+                    float burnThreshold = _DissolveAmount * (1.0 + _EdgeWidth + 0.05) - _EdgeWidth;
+                    float diffEstimate = fieldEstimate - burnThreshold;
+                    float edgeEstimate = saturate(1.0 - (diffEstimate / max(0.0001, _EdgeWidth))) * saturate(_DissolveAmount * 30.0);
+
+                    float jitter = SimplexNoise(worldPosEstimate * 14.0 + float3(0, _Time.y * 15.0, 0));
+                    displacedPosOS += input.normalOS * (edgeEstimate * _DisplacementAmount * jitter);
+                }
 
                 VertexPositionInputs posInputs = GetVertexPositionInputs(displacedPosOS);
                 output.positionCS = posInputs.positionCS;
@@ -457,8 +490,11 @@ Shader "Dissolve/URP_Dissolve"
 
             half DepthFrag(Varyings input) : SV_Target
             {
+                if ( _DissolveAmount <= 0.0001 ) return input.positionCS.z;
+                if ( _DissolveAmount >= 0.999 ) clip(-1.0);
                 float fieldValue = CalculateCutout(input.positionWS, input.positionOS, input.uv);
-                clip(fieldValue - _DissolveAmount);
+                float burnThreshold = _DissolveAmount * (1.0 + _EdgeWidth + 0.05) - _EdgeWidth;
+                clip(fieldValue - burnThreshold);
                 return input.positionCS.z;
             }
             ENDHLSL

@@ -217,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 2
   _initialAmount: 0
+  _uiFadeSpeedMultiplier: 3
   _dissolveCurve:
     serializedVersion: 2
     m_Curve:
